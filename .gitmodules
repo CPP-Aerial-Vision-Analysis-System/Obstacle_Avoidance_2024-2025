@@ -1,0 +1,3 @@
+[submodule "Boring-2D/rplidar_ros"]
+	path = Boring-2D/rplidar_ros
+	url = https://github.com/Slamtec/rplidar_ros.git
