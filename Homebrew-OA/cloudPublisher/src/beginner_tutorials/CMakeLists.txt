@@ -204,3 +204,6 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(PointCloud2Test src/PointCloud2Test.cpp)
+target_link_libraries(PointCloud2Test ${catkin_LIBRARIES})
