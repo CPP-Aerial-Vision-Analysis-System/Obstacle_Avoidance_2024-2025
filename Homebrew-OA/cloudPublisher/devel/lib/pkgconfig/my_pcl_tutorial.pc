@@ -1,7 +1,7 @@
 prefix=/home/suas/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/devel
 
-Name: beginner_tutorials
-Description: Description of beginner_tutorials
+Name: my_pcl_tutorial
+Description: Description of my_pcl_tutorial
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 

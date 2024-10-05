@@ -1,6 +1,9 @@
+#include <ros/console.h>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
-#include <pcl/conversions.h>
+#include <pcl_conversions/pcl_conversions.h>
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
 #include <sensor_msgs/PointCloud2.h>
 
 using namespace std;
@@ -20,6 +23,7 @@ int main(int argc, char **argv){
 
 	while(ros::ok()){
 
+		ROS_DEBUG("Hello %s", "World");
 		// Create pointcloud object
 		pcl::PointCloud<pcl::PointXYZ> cloud;
 		
