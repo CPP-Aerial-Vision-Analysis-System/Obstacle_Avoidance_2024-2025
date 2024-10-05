@@ -1,0 +1,8 @@
+prefix=/home/maxgross/SUAS/Obstacle_Avoidance_2024-2025/Boring-2D/PubSub/devel
+
+Name: beginner_tutorials
+Description: Description of beginner_tutorials
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
