@@ -208,4 +208,3 @@ include_directories(
 
 add_executable(PointCloud2Test src/PointCloud2Test.cpp)
 target_link_libraries(PointCloud2Test ${catkin_LIBRARIES})
-add_dependencies(PointCloud2Test beginner_tutorials_generate_messages_cpp)
