@@ -1,0 +1,8 @@
+prefix=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/install
+
+Name: pc_package
+Description: Description of pc_package
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
