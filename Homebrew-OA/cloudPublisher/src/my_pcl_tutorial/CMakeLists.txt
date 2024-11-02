@@ -208,3 +208,6 @@ include_directories(
 
 add_executable(PointCloud2Test src/PointCloud2Test.cpp)
 target_link_libraries(PointCloud2Test ${catkin_LIBRARIES})
+
+add_executable(FileReader src/FileReader.cpp)
+target_link_libraries(FileReader ${catkin_LIBRARIES})
