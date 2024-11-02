@@ -19,23 +19,26 @@ int main(int argc, char **argv){
 	// Returns a ros Publisher object
 	ros::Publisher lidarScanPub = n.advertise<sensor_msgs::PointCloud2>("chatter", 10);
 
-	// Create pointcloud object
-	pcl::PointCloud<pcl::PointXYZ> cloud(new pcl::PointCloud<pcl::PointXYZ);
+	ros::Rate loopRate(1);
 
-	// Load the file
-	if (pcl::io::loadPCDFile<pcl::PointXYZ> ("office1.pcd", *cloud) == -1) {
-		PCL_ERROR ("Couldn't read file\n");
-		return(-1);
+	while(ros::ok()){
+
+		// Create pointcloud object
+		sensor_msgs::PointCloud2 cloud_blob;
+
+		// Load the file
+		if (pcl::io::loadPCDFile("/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/src/my_pcl_tutorial/src/sampleData/office1.pcd", cloud_blob) == -1) {
+			PCL_ERROR ("Couldn't read file\n");
+			return(-1);
+		}
+
+		cloud_blob.header.frame_id = "map";
+
+		// Publish point cloud
+		lidarScanPub.publish(cloud_blob);
+
+		loopRate.sleep();
+
 	}
-
-	// Convert to sensor_msgs::PointCloud2 object
-	sensor_msgs::PointCloud2 cloud_msg;
-	pcl::toROSMsg(cloud, cloud_msg);
-
-	cloud_msg.header.frame_id = "map";
-
-	// Publish point cloud
-	lidarScanPub.publish(cloud_msg);
-
 	return 1;
 }
