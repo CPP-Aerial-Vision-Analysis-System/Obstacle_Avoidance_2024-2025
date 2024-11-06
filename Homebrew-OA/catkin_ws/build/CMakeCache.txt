@@ -685,6 +685,12 @@ beginner_tutorials_SOURCE_DIR:STATIC=/home/ethan/Projects/Obstacle_Avoidance_202
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
+//Value Computed by CMake
+cloudPub_BINARY_DIR:STATIC=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/cloudPub
+
+//Value Computed by CMake
+cloudPub_SOURCE_DIR:STATIC=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/src/cloudPub
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
 
@@ -745,6 +751,9 @@ lib:FILEPATH=/opt/ros/noetic/lib/librostime.so
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
+
+//The directory containing a CMake configuration file for open3d.
+open3d_DIR:PATH=open3d_DIR-NOTFOUND
 
 //Value Computed by CMake
 pc_package_BINARY_DIR:STATIC=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/pc_package
