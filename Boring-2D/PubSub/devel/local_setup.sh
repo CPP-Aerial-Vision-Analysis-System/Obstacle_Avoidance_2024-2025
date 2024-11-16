@@ -3,7 +3,7 @@
 
 # since this file is sourced either use the provided _CATKIN_SETUP_DIR
 # or fall back to the destination set at configure time
-: ${_CATKIN_SETUP_DIR:=/home/maxgross/SUAS/Obstacle_Avoidance_2024-2025/Boring-2D/PubSub/devel}
+: ${_CATKIN_SETUP_DIR:=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/Boring-2D/PubSub/devel}
 CATKIN_SETUP_UTIL_ARGS="--extend --local"
 . "$_CATKIN_SETUP_DIR/setup.sh"
 unset CATKIN_SETUP_UTIL_ARGS
