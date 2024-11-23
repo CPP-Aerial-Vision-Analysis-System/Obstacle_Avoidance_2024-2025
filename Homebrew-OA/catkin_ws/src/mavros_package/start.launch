@@ -1,0 +1,19 @@
+<launch>
+	<node pkg="mavros_package" type="3DAvoid.py" name="3DAvoid_py" required="true" output="screen" />
+
+       <param name="fcu_url" value="serial:////dev/ttyACM0:57600" /> 
+
+       <param name="gcs_url" value="" /> 
+
+       <param name="target_system" value="1" /> 
+
+       <param name="target_component" value="1" /> 
+
+       <param name="start_pos_gps_lat" value="0.0" /> 
+
+       <param name="start_pos_gps_lon" value="0.0" /> 
+
+       <param name="start_pos_gps_alt" value="0.0" /> 
+
+    </node>
+</launch>

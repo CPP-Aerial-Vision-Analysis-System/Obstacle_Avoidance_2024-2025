@@ -6,4 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("beginner_tutorials")
+subdirs("mavros_package")
 subdirs("pc_package")

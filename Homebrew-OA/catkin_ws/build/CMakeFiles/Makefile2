@@ -55,6 +55,7 @@ CMAKE_BINARY_DIR = /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA
 # The main recursive "all" target.
 all: gtest/all
 all: beginner_tutorials/all
+all: mavros_package/all
 all: pc_package/all
 
 .PHONY : all
@@ -62,6 +63,7 @@ all: pc_package/all
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: beginner_tutorials/preinstall
+preinstall: mavros_package/preinstall
 preinstall: pc_package/preinstall
 
 .PHONY : preinstall
@@ -74,6 +76,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: beginner_tutorials/clean
+clean: mavros_package/clean
 clean: pc_package/clean
 
 .PHONY : clean
@@ -168,6 +171,48 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/clean
 
 #=============================================================================
+# Directory level rules for directory mavros_package
+
+# Recursive "all" directory target.
+mavros_package/all:
+
+.PHONY : mavros_package/all
+
+# Recursive "preinstall" directory target.
+mavros_package/preinstall:
+
+.PHONY : mavros_package/preinstall
+
+# Recursive "clean" directory target.
+mavros_package/clean: mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+mavros_package/clean: mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+
+.PHONY : mavros_package/clean
+
+#=============================================================================
 # Directory level rules for directory pc_package
 
 # Recursive "all" directory target.
@@ -181,16 +226,7 @@ pc_package/preinstall:
 .PHONY : pc_package/preinstall
 
 # Recursive "clean" directory target.
-pc_package/clean: pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-pc_package/clean: pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-pc_package/clean: pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-pc_package/clean: pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-pc_package/clean: pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-pc_package/clean: pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-pc_package/clean: pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-pc_package/clean: pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-pc_package/clean: pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-pc_package/clean: pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+pc_package/clean:
 
 .PHONY : pc_package/clean
 
@@ -844,274 +880,679 @@ beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
 .PHONY : beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
+# Target rules for target mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_cpp"
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# clean rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# clean rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# clean rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_lisp: pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+geometry_msgs_generate_messages_lisp: mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_lisp
 
 # clean rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
+# Target rules for target mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_lisp: pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+geometry_msgs_generate_messages_eus: mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# clean rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
+.PHONY : geometry_msgs_generate_messages_eus
 
 # clean rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir
+# Target rules for target mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# clean rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# clean rule for target.
-pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-.PHONY : pc_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_cpp: pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+geometry_msgs_generate_messages_cpp: mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_cpp
 
 # clean rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+# Target rules for target mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_nodejs: pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+geometry_msgs_generate_messages_nodejs: mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_nodejs
 
 # clean rule for target.
-pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-.PHONY : pc_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geographic_msgs_generate_messages_nodejs"
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_nodejs: mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_nodejs
+
+# clean rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/clean
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geographic_msgs_generate_messages_eus"
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_eus: mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_eus
+
+# clean rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/clean
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target mavros_msgs_generate_messages_py"
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_py: mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_py
+
+# clean rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/clean
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target uuid_msgs_generate_messages_eus"
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_eus: mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_eus
+
+# clean rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/clean
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geographic_msgs_generate_messages_cpp"
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_cpp: mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_cpp
+
+# clean rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/clean
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target mavros_msgs_generate_messages_nodejs"
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_nodejs: mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_nodejs
+
+# clean rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/clean
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target uuid_msgs_generate_messages_nodejs"
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_nodejs: mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_nodejs
+
+# clean rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/clean
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target mavros_msgs_generate_messages_lisp"
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_lisp: mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_lisp
+
+# clean rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/clean
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target mavros_msgs_generate_messages_eus"
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_eus: mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_eus
+
+# clean rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/clean
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target mavros_msgs_generate_messages_cpp"
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+mavros_msgs_generate_messages_cpp: mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : mavros_msgs_generate_messages_cpp
+
+# clean rule for target.
+mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/clean
+.PHONY : mavros_package/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# clean rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_py: mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_py
+
+# clean rule for target.
+mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : mavros_package/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geographic_msgs_generate_messages_py"
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_py: mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_py
+
+# clean rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/clean
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# clean rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_nodejs: mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# clean rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target uuid_msgs_generate_messages_cpp"
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_cpp: mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_cpp
+
+# clean rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/clean
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target uuid_msgs_generate_messages_py"
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_py: mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_py
+
+# clean rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/clean
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target uuid_msgs_generate_messages_lisp"
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+uuid_msgs_generate_messages_lisp: mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : uuid_msgs_generate_messages_lisp
+
+# clean rule for target.
+mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/clean
+.PHONY : mavros_package/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target geographic_msgs_generate_messages_lisp"
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geographic_msgs_generate_messages_lisp: mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geographic_msgs_generate_messages_lisp
+
+# clean rule for target.
+mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/build.make mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/clean
+.PHONY : mavros_package/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_cpp"
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_cpp: mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# clean rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/build/CMakeFiles 0
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_eus: mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_eus
+
+# clean rule for target.
+mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+.PHONY : mavros_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
