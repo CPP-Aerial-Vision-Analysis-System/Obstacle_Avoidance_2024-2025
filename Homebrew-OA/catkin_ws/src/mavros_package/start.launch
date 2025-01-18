@@ -1,5 +1,5 @@
 <launch>
-	<node pkg="mavros_package" type="3DAvoid.py" name="3DAvoid_py" required="true" output="screen">
+	<node pkg="mavros_package" type="3DAvoid.py" name="Avoid_py" required="true" output="screen">
 
        <param name="fcu_url" value="serial:////dev/ttyACM0:57600" /> 
 

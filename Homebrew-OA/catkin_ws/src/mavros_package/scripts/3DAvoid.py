@@ -7,7 +7,8 @@ from sensor_msgs.msg import PointCloud2, PointField
 import open3d as o3d
 import numpy as np
 import math
-from mavros_msgs.msg import State, Mavlink
+from mavros_msgs.msg import Mavlink
+
 
 def convertX(r, theta, phi):
     x = r * math.sin(theta) * math.cos(phi)
@@ -16,17 +17,26 @@ def convertX(r, theta, phi):
 def convertY(r, theta, phi):
     y = r * math.sin(theta) * math.sin(phi)
     return y
+
 def convertZ(r, theta, phi):
     z = r * math.cos(theta)
     return z
+
+def lidar_callback(msg):
+    print("Callback to process pointcloud2 data")
+
+
 def main():
     
     # Initialize the ROS node
     rospy.init_node('send_obstacle_3D', anonymous=True)
 
-    # Publisher for the Mavlink topic
-    pub = rospy.Publisher('\mavros\mavlink\to', Mavlink, queue_size=10)
+    # Publisher for the ObstacleDistance3D topic
+    pub = rospy.Publisher('/mavros/mavlink/to', Mavlink, queue_size=10)
     rate = rospy.Rate(10)
+
+    # Subscriber for unitree
+    # rospy.Subscriber('/unitree/cloud', PointCloud2, lidar_callback)
 
     cloud_o3d = o3d.io.read_point_cloud("/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/src/my_pcl_tutorial/src/sampleData/office1.pcd")
     points = np.asarray(cloud_o3d.points)
@@ -62,17 +72,18 @@ def main():
     finalList = []
     finalList.append(top[0])
     for i in range(6):
-        finalList.append(mid[i])
+        if i < len(mid):
+            finalList.append(mid[i])
     for i in range(10):
-        finalList.append(bot[i])
-    
-    msg = Mavlink()
-    msg.sysid = 1
-    msg.compid = 1
-    msg.msgid = 1
-    msg.payload64 = [0,0,0,0,0,0,0]
+        if i < len(bot):
+            finalList.append(bot[i])
 
     while not rospy.is_shutdown():
+        msg = Mavlink()
+        msg.sysid = 1
+        msg.compid = 1
+        msg.msgid = 1
+        msg.payload64 = [0,0,0,0,0,0,0]
         pub.publish(msg)
         rate.sleep()
         
