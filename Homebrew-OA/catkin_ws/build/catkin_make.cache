@@ -1,2 +1,0 @@
-beginner_tutorials:pc_package
--DCATKIN_DEVEL_PREFIX=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/install -G Unix Makefiles
