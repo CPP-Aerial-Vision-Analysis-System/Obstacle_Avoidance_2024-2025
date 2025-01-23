@@ -1,4 +1,4 @@
-prefix=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/devel
+prefix=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws/devel
 
 Name: beginner_tutorials
 Description: Description of beginner_tutorials
