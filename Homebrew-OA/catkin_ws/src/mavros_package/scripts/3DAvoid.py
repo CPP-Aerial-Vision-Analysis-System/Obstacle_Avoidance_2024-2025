@@ -8,6 +8,9 @@ import open3d as o3d
 import numpy as np
 import math
 from mavros_msgs.msg import Mavlink
+from pymavlink.dialects.v20 import ardupilotmega as mavlink
+from pymavlink import mavutil
+import time
 
 
 def convertX(r, theta, phi):
@@ -78,15 +81,44 @@ def main():
         if i < len(bot):
             finalList.append(bot[i])
 
+    # Sample 3D obstacle distance data
+    obstacle_x = 5.0  # Obstacle X position in meters
+    obstacle_y = 10.0  # Obstacle Y position in meters
+    obstacle_z = 3.0  # Obstacle Z position in meters
+
+    # Sensor and frame configuration
+    sensor_type = 0  # Laser
+    obstacle_id = 1
+    frame = mavlink.MAV_FRAME_LOCAL_NED
+
     while not rospy.is_shutdown():
-        msg = Mavlink()
-        msg.sysid = 1
-        msg.compid = 1
-        msg.msgid = 1
-        msg.payload64 = [0,0,0,0,0,0,0]
-        pub.publish(msg)
+        # Create the raw MAVLink message
+        mav_msg = mavlink.MAVLink_obstacle_distance_3d_message(
+            time_boot_ms=100,  # Current time in microseconds
+            sensor_type=sensor_type,
+            obstacle_id=obstacle_id,
+            x=obstacle_x,
+            y=obstacle_y,
+            z=obstacle_z,
+            frame=frame,
+            min_distance=0.5,
+            max_distance=20.0
+        )
+
+        # Pack the MAVLink message
+        raw_msg = mav_msg.pack(mavutil.mavlink.MAVLink('', 255, 0))
+
+        # Convert to ROS Mavlink message
+        ros_msg = Mavlink()
+        ros_msg.sysid = 1  # System ID (adjust as needed)
+        ros_msg.compid = 1  # Component ID (adjust as needed)
+        ros_msg.msgid = mavlink.MAVLINK_MSG_ID_OBSTACLE_DISTANCE_3D
+        ros_msg.payload64 = list(raw_msg)
+
+        # Publish the message
+        pub.publish(ros_msg)
         rate.sleep()
-        
+
     return
 
 if __name__ == '__main__':
