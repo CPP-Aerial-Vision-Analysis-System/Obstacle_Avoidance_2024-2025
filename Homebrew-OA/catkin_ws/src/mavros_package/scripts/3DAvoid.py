@@ -43,7 +43,7 @@ def main():
     rospy.init_node('send_obstacle_3D', anonymous=True)
 
     # Publisher for the ObstacleDistance3D topic
-    pub = rospy.Publisher('/mavros/mavlink/to', Mavlink, queue_size=10)
+    pub = rospy.Publisher('/mavlink/to', Mavlink, queue_size=10)
     rate = rospy.Rate(10)
 
     # Subscriber for unitree
