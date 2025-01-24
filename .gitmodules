@@ -1,3 +1,7 @@
 [submodule "Boring-2D/rplidar_ros"]
 	path = Boring-2D/rplidar_ros
 	url = https://github.com/Slamtec/rplidar_ros.git
+
+[submodule "Boring-2D/unilidar_sdk"]
+	path = Boring-2D/unilidar_sdk
+	url = https://github.com/unitreerobotics/unilidar_sdk.git
