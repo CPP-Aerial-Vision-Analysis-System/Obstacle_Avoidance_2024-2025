@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 
-import typing
-
+import struct
 import rospy
 from std_msgs.msg import String
 import sensor_msgs.point_cloud2 as pc2
-from sensor_msgs.msg import PointCloud2, PointField
-import open3d as o3d
-import numpy as np
+from sensor_msgs.msg import PointCloud2
 import math
 from mavros_msgs.msg import Mavlink
 from pymavlink.dialects.v20 import ardupilotmega as mavlink
 from pymavlink import mavutil
 import time
+
 
 def convertX(r, theta, phi):
     x = r * math.sin(theta) * math.cos(phi)
@@ -84,7 +82,7 @@ def lidar_callback(data, pub):
         frame = mavlink.MAV_FRAME_LOCAL_NED
 
         # Create the raw MAVLink message
-        mav_msg = mavlink.MAVLink_obstacle_distance_3d_message(
+        raw_msg = mavlink.MAVLink_obstacle_distance_3d_message(
             time_boot_ms = int(100),  # Current time in microseconds
             sensor_type = int(sensor_type),
             obstacle_id=int(obstacle_id),
@@ -96,22 +94,28 @@ def lidar_callback(data, pub):
             max_distance=float(20.0)
         )
 
-        # Pack the MAVLink message
-        raw_msg = mav_msg.pack(mavutil.mavlink_connection('udpin:localhost:14540'))
+        payload_bytes = bytearray(raw_msg)
+        payload_len = len(payload_bytes)
+        payload_octets = int(payload_len / 8)
+        if payload_len % 8 > 0:
+            payload_octets += 1
+            payload_bytes += b"\0" * (8 - payload_len % 8)
+
+        payload_msg = struct.unpack(f"<{payload_octets}Q", payload_bytes)
 
         # Convert to ROS Mavlink message
         ros_msg = Mavlink()
         ros_msg.sysid = 1  # System ID (adjust as needed)
         ros_msg.compid = 1  # Component ID (adjust as needed)
         ros_msg.msgid = mavlink.MAVLINK_MSG_ID_OBSTACLE_DISTANCE_3D
-        ros_msg.payload64 = list(raw_msg)
+        ros_msg.payload64 = payload_msg
 
         # Publish the message
         pub.publish(ros_msg)
         rate.sleep()
 
 def main():
-    pub = rospy.Publisher('/mavlink/to', Mavlink, queue_size=10)
+    pub = rospy.Publisher('mavlink/to', Mavlink, queue_size=10)
 
     # Initialize the ROS node
     rospy.init_node('send_obstacle_3D', anonymous=True)
@@ -120,9 +124,6 @@ def main():
     rospy.Subscriber('/unilidar/cloud', PointCloud2, lidar_callback, callback_args=pub)
     rospy.loginfo("UniLidar subscriber and MAVLink publisher node started.")
     rospy.spin()
-
-    
-
     return
 
 if __name__ == '__main__':
