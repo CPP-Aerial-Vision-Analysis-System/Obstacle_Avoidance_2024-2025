@@ -10,6 +10,7 @@ import open3d as o3d
 import numpy as np
 import math
 from mavros_msgs.msg import Mavlink
+from mavros.mavlink import convert_to_rosmsg
 from pymavlink.dialects.v20 import ardupilotmega as mavlink
 from pymavlink import mavutil
 import time
@@ -107,7 +108,7 @@ def lidar_callback(data, pub):
         ros_msg.payload64 = list(raw_msg)
 
         # Publish the message
-        pub.publish(ros_msg)
+        pub.publish(convert_to_rosmsg(mav_msg))
         rate.sleep()
 
 def main():
