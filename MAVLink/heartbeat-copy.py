@@ -1,7 +1,7 @@
 from pymavlink import mavutil
 import time
 
-master=mavutil.mavlink_connection('/dev/ttyACM0', baud=57600)
+master=mavutil.mavlink_connection('zz', baud=57600)
 
 try:
 
