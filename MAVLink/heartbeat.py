@@ -1,6 +1,14 @@
 from pymavlink import mavutil
 import time
 
+
+import sys
+sys.path.append("/usr/local/lib/")
+
+# Set MAVLink protocol to 2.
+import os
+os.environ["MAVLINK20"] = "1"
+
 master=mavutil.mavlink_connection('udpin:localhost:14550')
 
 while True:
