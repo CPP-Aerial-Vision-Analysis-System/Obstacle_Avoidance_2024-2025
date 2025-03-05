@@ -1,3 +1,20 @@
-[submodule "Boring-2D/rplidar_ros"]
-	path = Boring-2D/rplidar_ros
+[submodule "rplidar_ros"]
+	path = Boring-2D/RPLiDAR/src/rplidar_ros
 	url = https://github.com/Slamtec/rplidar_ros.git
+
+[submodule "iq_gnc"]
+	path = ROS-IQ-Tutorials/src/iq_gnc
+	url = https://github.com/Intelligent-Quads/iq_gnc.git
+
+[submodule "iq_sim"]
+	path = ROS-IQ-Tutorials/src/iq_sim
+	url = https://github.com/Intelligent-Quads/iq_sim.git
+
+
+[submodule "darknet_ros"]
+	path = ROS-IQ-Tutorials/src/darknet_ros
+	url = https://github.com/leggedrobotics/darknet_ros
+
+[submodule "unitree_lidar"]
+	path = Boring-2D/unilidar_sdk
+	url = https://github.com/unitreerobotics/unilidar_sdk.git

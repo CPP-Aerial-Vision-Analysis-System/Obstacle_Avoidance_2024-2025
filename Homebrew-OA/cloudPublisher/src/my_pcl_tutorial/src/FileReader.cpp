@@ -27,7 +27,7 @@ int main(int argc, char **argv){
 		sensor_msgs::PointCloud2 cloud_blob;
 
 		// Load the file
-		if (pcl::io::loadPCDFile("/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/src/my_pcl_tutorial/src/sampleData/office1.pcd", cloud_blob) == -1) {
+		if (pcl::io::loadPCDFile("/home/suas/Desktop/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/src/my_pcl_tutorial/src/sampleData/office1.pcd", cloud_blob) == -1) {
 			PCL_ERROR ("Couldn't read file\n");
 			return(-1);
 		}

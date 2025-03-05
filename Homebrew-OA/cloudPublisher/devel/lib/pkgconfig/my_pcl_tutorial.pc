@@ -1,4 +1,4 @@
-prefix=/home/ethan/Projects/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/devel
+prefix=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/Homebrew-OA/cloudPublisher/devel
 
 Name: my_pcl_tutorial
 Description: Description of my_pcl_tutorial

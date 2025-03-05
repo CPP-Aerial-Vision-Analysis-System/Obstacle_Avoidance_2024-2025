@@ -28,24 +28,15 @@ while True:
             min_distance=float(0.5),
             max_distance=float(20.0)
         )
-        
-    master.mav.command_long_send(
-        master.target_system,
-        master.target_component,
-        mav_msg,
-        0,
-        81,
-        0, 0, 0, 0, 0, 0
-    )
 
-    '''
-    master.mav.command_long_send(
-        master.target_system,
-        master.target_component,
-        mavutil.mavlink.MAV_CMD_DO_SET_MODE,
-        0,
-        81,
-        0, 0, 0, 0, 0, 0
-    )
-    '''
-    time.sleep(1)
+    
+    # master.mav.command_long_send(
+    #     master.target_system,
+    #     master.target_component,
+    #     mavutil.mavlink.MAV_CMD_DO_SET_MODE,
+    #     0,
+    #     81,
+    #     0, 0, 0, 0, 0, 0
+    # )
+    
+    # time.sleep(1)
