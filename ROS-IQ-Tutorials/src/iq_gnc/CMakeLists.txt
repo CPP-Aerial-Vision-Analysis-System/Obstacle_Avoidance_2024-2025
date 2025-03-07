@@ -216,7 +216,7 @@ target_link_libraries(set_wp ${catkin_LIBRARIES})
 #add_executable(sub_sol src/subscriber_sol.cpp)
 #target_link_libraries(sub_sol ${catkin_LIBRARIES})
 
-#add_executable(avoidance_sol src/avoidance_sol.cpp)
-#target_link_libraries(avoidance_sol ${catkin_LIBRARIES})
+add_executable(avoidance_sol src/avoidance_sol.cpp)
+target_link_libraries(avoidance_sol ${catkin_LIBRARIES})
 
 # Add tutorial add_executable lines here 
