@@ -2,10 +2,12 @@
 
 echo 'running IQ tutorial sim'
 
-gnome-terminal --title mavros -e 'roslaunch mavros apm.launch fcu_url:=udp://:14550@'
+gnome-terminal --title Gazebo --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/ROS-IQ-Tutorials -e "bash -c 'source ./devel/setup.bash; roslaunch iq_sim lidar.launch'"
 
-gnome-terminal --title UnitreeLidar --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/Boring-2D/unilidar_sdk/unitree_lidar_ros -e "bash -c 'source ./devel/setup.bash; roslaunch unitree_lidar_ros run.launch'"
+gnome-terminal --title MavProxy -e "bash -c 'cd ~/ardupilot/ArduCopter/ && sim_vehicle.py -v ArduCopter -f gazebo-iris --console --out 127.0.0.1:14551'"
 
-gnome-terminal --title RosToMav  --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/Homebrew-OA/catkin_ws -e "bash -c 'source ./devel/setup.bash; rosrun mavros_package 3DAvoid.py'"
+sleep 10
 
-gnome-terminal --title rqt_graph -e 'rqt_graph'
+gnome-terminal --title MavROS --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/ROS-IQ-Tutorials -e "bash -c 'source ./devel/setup.bash; roslaunch iq_gnc apm.launch'"
+
+gnome-terminal --title IQAvoidance --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/ROS-IQ-Tutorials -e "bash -c 'source ./devel/setup.bash; rosrun iq_gnc avoidance_sol'"
