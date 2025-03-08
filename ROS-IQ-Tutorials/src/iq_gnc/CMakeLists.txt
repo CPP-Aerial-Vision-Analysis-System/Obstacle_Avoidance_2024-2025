@@ -220,3 +220,6 @@ add_executable(avoidance_sol src/avoidance_sol.cpp)
 target_link_libraries(avoidance_sol ${catkin_LIBRARIES})
 
 # Add tutorial add_executable lines here 
+
+add_executable(avoidance3D_sol src/avoidance3D_sol.cpp)
+target_link_libraries(avoidance3D_sol ${catkin_LIBRARIES})
