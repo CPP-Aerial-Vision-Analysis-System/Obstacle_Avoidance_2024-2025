@@ -1,4 +1,5 @@
 from pymavlink import mavutil
+from pymavlink.dialects.v20 import common as mavlink2
 import time
 
 
@@ -8,25 +9,36 @@ sys.path.append("/usr/local/lib/")
 # Set MAVLink protocol to 2.
 import os
 os.environ["MAVLINK20"] = "1"
+os.environ['MAVLINK_DIALECT'] = 'ardupilotmega'
 
-master=mavutil.mavlink_connection('udpin:localhost:14550')
+master= mavutil.mavlink_connection('tcp:localhost:5762', dialect='ardupilotmega')
+
+start_time =  int(round(time.time() * 1000))
+current_milli_time = lambda: int(round(time.time() * 1000) - start_time)
+current_time_ms = current_milli_time()
 
 while True:
 
-    msg=master.recv_match(type='HEARTBEAT', blocking=True)
-    print(f"Heartbeat from CUBE: {msg}")
+    msg=master.recv_match(type='HEARTBEAT', blocking=False)
+    if(msg):
+        print(f"Heartbeat from CUBE: {msg}")
+
+#     master.mav.heartbeat_send(
+#             mavutil.mavlink.MAV_TYPE_GCS,
+#             mavutil.mavlink.MAV_AUTOPILOT_INVALID,
+#             0,0,0)
 
 
-    mav_msg = mavutil.mavlink.MAVLink_obstacle_distance_3d_message(
-            time_boot_ms = int(100),  # Current time in microseconds
-            sensor_type = int(0),
-            obstacle_id=int(1),
-            x=float(1),
-            y=float(1),
-            z=float(1),
-            frame=int(mavutil.mavlink.MAV_FRAME_LOCAL_NED),
-            min_distance=float(0.5),
-            max_distance=float(20.0)
+    mav_msg = master.mav.obstacle_distance_3d_send(
+            current_time_ms,    # us Timestamp (UNIX time or time since system boot)
+            0,                  
+            0,                  
+            65535,              
+            float(0),	    
+            float(.5),       
+            float(0),	    
+            float(.01),       
+            float(25)
         )
 
     
@@ -39,4 +51,4 @@ while True:
     #     0, 0, 0, 0, 0, 0
     # )
     
-    # time.sleep(1)
+    time.sleep(.1)

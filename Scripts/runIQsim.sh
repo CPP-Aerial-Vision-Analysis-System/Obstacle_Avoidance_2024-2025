@@ -10,4 +10,4 @@ sleep 10
 
 gnome-terminal --title MavROS --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/ROS-IQ-Tutorials -e "bash -c 'source ./devel/setup.bash; roslaunch iq_gnc apm.launch'"
 
-gnome-terminal --title IQAvoidance --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/ROS-IQ-Tutorials -e "bash -c 'source ./devel/setup.bash; rosrun iq_gnc avoidance_sol'"
+gnome-terminal --title IQAvoidance --working-directory=/home/suas/Desktop/Obstacle_Avoidance_2024-2025/ROS-IQ-Tutorials -e "bash -c 'source ./devel/setup.bash; rosrun iq_gnc avoidance3D_sol'"

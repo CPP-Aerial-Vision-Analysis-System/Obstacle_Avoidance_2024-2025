@@ -18,3 +18,7 @@
 [submodule "unitree_lidar"]
 	path = Boring-2D/unilidar_sdk
 	url = https://github.com/unitreerobotics/unilidar_sdk.git
+
+[submodule "Velodyne_simulator"]
+	path = Velodyne-Simulator
+	url = https://github.com/lmark1/velodyne_simulator.git

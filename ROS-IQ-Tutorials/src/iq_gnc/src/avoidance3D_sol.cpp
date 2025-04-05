@@ -24,41 +24,40 @@ void scan_cb(const sensor_msgs::PointCloud2::ConstPtr& msg)
 	for(size_t i=0; i<cloud_mod.size(); ++i) {
 
 		ROS_INFO("x: %10f		y: %10f		z: %10f\n", iter_x[i], iter_y[i], iter_z[i]);
+
+		float d0 = 3;
+		float k = .5;
+
+		float dist = sqrt(iter_x[i] * iter_x[i] + iter_y[i] * iter_x[i] + iter_z[i] * iter_z[i]);
+
+		if(dist < d0 && dist > .35){
+			avoid = true;
+			float U = -.5*k*pow((dist - (1/d0)), 2);	
+
+			avoidance_vector_x = avoidance_vector_x + iter_x[i]*U;
+			avoidance_vector_y = avoidance_vector_y + iter_y[i]*U;
+			avoidance_vector_z = avoidance_vector_z + iter_z[i]*U;
+		}
 	}
 
-	// for(int i=1; i<current_3D_scan.data.size(); i++)
-	// {
-	// 	float d0 = 3; 
-	// 	float k = 0.5;
+	float current_heading = get_current_heading();
+	float deg2rad = (M_PI/180);
+	avoidance_vector_x = avoidance_vector_x*cos((current_heading)*deg2rad) - avoidance_vector_y*sin((current_heading)*deg2rad);
+	avoidance_vector_y = avoidance_vector_x*sin((current_heading)*deg2rad) + avoidance_vector_y*cos((current_heading)*deg2rad);
 
-	// 	if(current_3D_scan.data[i] < d0 && current_3D_scan.data[i] > .35)
-	// 	{
-	// 		avoid = true;
-	// 		float x = current_3D_scan.data[i].x;
-	// 		float y = sin(current_2D_scan.angle_increment*i);
-	// 		float U = -.5*k*pow(((1/current_2D_scan.ranges[i]) - (1/d0)), 2);	
-
-	// 		avoidance_vector_x = avoidance_vector_x + x*U;
-	// 		avoidance_vector_y = avoidance_vector_y + y*U;
-
-	// 	}
-	// }
-	// float current_heading = get_current_heading();
-	// float deg2rad = (M_PI/180);
-	// avoidance_vector_x = avoidance_vector_x*cos((current_heading)*deg2rad) - avoidance_vector_y*sin((current_heading)*deg2rad);
-	// avoidance_vector_y = avoidance_vector_x*sin((current_heading)*deg2rad) + avoidance_vector_y*cos((current_heading)*deg2rad);
-
-	// if(avoid)
-	// {
-	// 	if( sqrt(pow(avoidance_vector_x,2) + pow(avoidance_vector_y,2)) > 3)
-	// 	{
-	// 		avoidance_vector_x = 3 * (avoidance_vector_x/sqrt(pow(avoidance_vector_x,2) + pow(avoidance_vector_y,2)));
-	// 		avoidance_vector_y = 3 * (avoidance_vector_y/sqrt(pow(avoidance_vector_x,2) + pow(avoidance_vector_y,2)));
-	// 	}
-	// 	geometry_msgs::Point current_pos;
-	// 	current_pos = get_current_location();
-	// 	set_destination(avoidance_vector_x + current_pos.x, avoidance_vector_y + current_pos.y, 2, 0);	
-	// }
+	if(avoid)
+	{
+		if( sqrt(pow(avoidance_vector_x,2) + pow(avoidance_vector_y,2) + pow(avoidance_vector_z,2)) > 3)
+		{
+			avoidance_vector_x = 3 * (avoidance_vector_x/sqrt(pow(avoidance_vector_x,2) + pow(avoidance_vector_y,2)));
+			avoidance_vector_y = 3 * (avoidance_vector_y/sqrt(pow(avoidance_vector_x,2) + pow(avoidance_vector_y,2)));
+			avoidance_vector_z = 3 * (avoidance_vector_y/sqrt(pow(avoidance_vector_z,2) + pow(avoidance_vector_z,2)));
+		}
+		
+		geometry_msgs::Point current_pos;
+		current_pos = get_current_location();
+		set_destination(avoidance_vector_x + current_pos.x, avoidance_vector_y + current_pos.y, avoidance_vector_z + current_pos.z, 0);	
+	}
 	
 
 }
@@ -74,20 +73,20 @@ int main(int argc, char **argv)
 	init_publisher_subscriber(n);
 
 	
-  	// // wait for FCU connection
-	// wait4connect();
+  	// wait for FCU connection
+	wait4connect();
 
-	// //wait for used to switch to mode GUIDED
-	// wait4start();
+	//wait for used to switch to mode GUIDED
+	wait4start();
 
-	// //create local reference frame 
-	// initialize_local_frame();
+	//create local reference frame 
+	initialize_local_frame();
 
-	// //request takeoff
-	// takeoff(2);
+	//request takeoff
+	takeoff(2);
 
 
-	// set_destination(0,0,2,0);
+	set_destination(0,0,2,0);
 	//specify control loop rate. We recommend a low frequency to not over load the FCU with messages. Too many messages will cause the drone to be sluggish
 	ros::Rate rate(2.0);
 	int counter = 0;
