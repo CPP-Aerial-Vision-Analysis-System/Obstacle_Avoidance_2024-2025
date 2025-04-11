@@ -30,12 +30,12 @@ while True:
 
 
     mav_msg = master.mav.obstacle_distance_3d_send(
-            current_time_ms,    # us Timestamp (UNIX time or time since system boot)
+            current_time_ms * 1000,    # us Timestamp (UNIX time or time since system boot)
             0,                  
-            0,                  
+            mavutil.mavlink.MAV_FRAME_BODY_FRD,                  
             65535,              
-            float(0),	    
-            float(.5),       
+            float(1),	    
+            float(0),       
             float(0),	    
             float(.01),       
             float(25)
@@ -51,4 +51,4 @@ while True:
     #     0, 0, 0, 0, 0, 0
     # )
     
-    time.sleep(.1)
+    time.sleep(.01)
