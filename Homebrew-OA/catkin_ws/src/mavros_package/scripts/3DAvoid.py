@@ -29,7 +29,9 @@ start_time =  int(round(time.time() * 1000))
 current_milli_time = lambda: int(round(time.time() * 1000) - start_time)
 current_time_ms = current_milli_time()
 
-rate = rospy.Rate(100)
+done = True
+
+rate = rospy.Rate(.1)
 
 def convertX(r, theta, phi):
     x = r * math.sin(theta) * math.cos(phi)
@@ -48,9 +50,12 @@ def lidar_callback(data):
     Callback function for processing PointCloud2 data and publishing MAVLink messages.
     """
 
-    global pub, rate
+    global pub, rate, done
 
     # print("got callback")
+
+    if(not done):
+        return
 
     # Convert PointCloud2 to a list of points
     points = list(pc2.read_points(data, field_names=("x", "y", "z"), skip_nans=True))
@@ -58,9 +63,9 @@ def lidar_callback(data):
     # <19.7499
     top = []
     # 19.7499 - 53.966
-    mid = [[]]
+    mid = [[]for i in range(6)]
     # >53.966
-    bot = [[]]
+    bot = [[] for i in range(10)]
 
     cloud_itr = 0
     
@@ -72,15 +77,19 @@ def lidar_callback(data):
             continue
 
         r = math.sqrt(x**2 + y**2 + z**2)
-        theta = math.acos(z / math.sqrt(x**2 + y**2 + z**2))
-        phi = math.asin(y / math.sqrt(x**2 + y**2))
+        theta = math.acos(z / math.sqrt(x**2 + y**2 + z**2)) * 180 / math.pi
+        phi = math.asin(y / math.sqrt(x**2 + y**2)) * 180 / math.pi
 
-        if phi <= 19.7499:
-            top.append((r, theta, phi, cloud_itr))
-        elif phi > 19.7499 and phi <= 53.966:
-            mid[int(theta / 6)].append((r, theta, phi, cloud_itr))
-        else:
-            bot[theta / 10].append((r, theta, phi, cloud_itr))
+        if r < 1:
+
+            if phi <= 19.7499:
+                top.append((r, theta, phi, cloud_itr))
+                print("I ran")
+                
+            elif phi > 19.7499 and phi <= 53.966:
+                mid[int(theta / (360 / 5))].append((r, theta, phi, cloud_itr))
+            else:
+                bot[int(theta / (360 / 9))].append((r, theta, phi, cloud_itr))
     
         cloud_itr += 1
     
@@ -102,13 +111,14 @@ def lidar_callback(data):
 
     finalList = []
 
-    # if (len(top) > 0):
-    #     point = points[get_min(top)]
-    #     if point:
-    #         finalList.append(point)
-    for i in mid : finalList.append(points[get_min(i)])
-    for i in bot : finalList.append(points[get_min(i)])
     
+
+    finalList.append(points[get_min(top)])
+    for i in mid :
+        
+        finalList.append(points[get_min(i)])
+    for i in bot :
+        finalList.append(points[get_min(i)])   
     
 
     for point in finalList:
@@ -125,17 +135,22 @@ def lidar_callback(data):
         raw_msg = master.mav.obstacle_distance_3d_send(
             time_boot_ms = current_time_ms * 1000,   # Current time in microseconds
             sensor_type = 0,
-            frame= frame,
+            frame= mavutil.mavlink.MAV_FRAME_BODY_FRD,
             obstacle_id= 65535,
             x=float(obstacle_x),
             y=float(obstacle_y),
-            z=float(obstacle_z),
+            z=float(-obstacle_z),
             
             min_distance=float(.01),
-            max_distance=float(25)
+            max_distance=float(.5)
         )
 
-        time.sleep(.1)
+        time.sleep(0.06667)
+    
+    for i in range(len(finalList)):
+        print(i, finalList[i])
+
+    print()
 
     # Sensor and frame configuration
     # sensor_type = 0  # Laser
@@ -158,7 +173,7 @@ def lidar_callback(data):
 
     header = std_msgs.msg.Header()
     header.stamp = rospy.Time.now()
-    header.frame_id = 'your_frame'
+    header.frame_id = 'unilidar_lidar'
 
     scaled_polygon_pcl = pc2.create_cloud_xyz32(header, finalList)
 
@@ -175,7 +190,7 @@ def main():
     
 
     # Subscriber for unitree
-    rospy.Subscriber('/velodyne_points', PointCloud2, lidar_callback)
+    rospy.Subscriber('/unilidar/cloud', PointCloud2, lidar_callback)
     rospy.loginfo("UniLidar subscriber and MAVLink publisher node started.")
     rate.sleep()
     rospy.spin()
