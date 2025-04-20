@@ -33,18 +33,6 @@ done = True
 
 rate = rospy.Rate(.1)
 
-def convertX(r, theta, phi):
-    x = r * math.sin(theta) * math.cos(phi)
-    return x
-
-def convertY(r, theta, phi):
-    y = r * math.sin(theta) * math.sin(phi)
-    return y
-
-def convertZ(r, theta, phi):
-    z = r * math.cos(theta)
-    return z
-
 def lidar_callback(data):
     """
     Callback function for processing PointCloud2 data and publishing MAVLink messages.
@@ -74,22 +62,21 @@ def lidar_callback(data):
         y = point[1]
         z = point[2]
         if x == 0 and y == 0 or x == 0 and y == 0 and z == 0:
+            cloud_itr += 1
             continue
 
         r = math.sqrt(x**2 + y**2 + z**2)
-        theta = math.acos(z / math.sqrt(x**2 + y**2 + z**2)) * 180 / math.pi
-        phi = math.asin(y / math.sqrt(x**2 + y**2)) * 180 / math.pi
+        theta = math.atan2(y, x) * 180 / math.pi
+        phi = math.atan2(math.sqrt(x * x + y * y), z) * 180 / math.pi
 
-        if r < 1:
+        # if r < 1:
 
-            if phi <= 19.7499:
-                top.append((r, theta, phi, cloud_itr))
-                print("I ran")
-                
-            elif phi > 19.7499 and phi <= 53.966:
-                mid[int(theta / (360 / 5))].append((r, theta, phi, cloud_itr))
-            else:
-                bot[int(theta / (360 / 9))].append((r, theta, phi, cloud_itr))
+        if phi <= 19.7499:
+            top.append((r, theta, phi, cloud_itr))
+        elif phi > 19.7499 and phi <= 53.966:
+            mid[int(theta * 6 / 360)].append((r, theta, phi, cloud_itr))
+        else:
+            bot[int(theta * 10 / 360)].append((r, theta, phi, cloud_itr))
     
         cloud_itr += 1
     
@@ -115,16 +102,33 @@ def lidar_callback(data):
 
     finalList.append(points[get_min(top)])
     for i in mid :
-        
         finalList.append(points[get_min(i)])
     for i in bot :
         finalList.append(points[get_min(i)])   
+
+    seg = []
+
+    for i in bot[9]:
+        seg.append(points[i[3]])
     
+    header = std_msgs.msg.Header()
+    header.stamp = rospy.Time.now()
+    header.frame_id = 'unilidar_lidar'
+
+    scaled_polygon_pcl = pc2.create_cloud_xyz32(header, finalList)
+    # scaled_polygon_pcl = pc2.create_cloud_xyz32(header, seg)
+
+    # Publish the messages
+    pub.publish(scaled_polygon_pcl)
+    
+    num = 0
 
     for point in finalList:
         obstacle_x = point[0]
         obstacle_y = point[1]
         obstacle_z = point[2]
+
+        print(num, point)
 
         # Sensor and frame configuration
         sensor_type = 0  # Laser
@@ -146,52 +150,19 @@ def lidar_callback(data):
         )
 
         time.sleep(0.06667)
-    
-    for i in range(len(finalList)):
-        print(i, finalList[i])
 
+        num += 1
+    
     print()
-
-    # Sensor and frame configuration
-    # sensor_type = 0  # Laser
-    # obstacle_id = 1
-    # frame = mavutil.mavlink.MAV_FRAME_LOCAL_NED
-
-    # # Create the raw MAVLink message
-    # raw_msg = master.mav.obstacle_distance_3d_send(
-    #     time_boot_ms = current_time_ms * 1000,   # Current time in microseconds
-    #     sensor_type = 0,
-    #     frame= frame,
-    #     obstacle_id= 65535,
-    #     x=float(1),
-    #     y=float(0),
-    #     z=float(0),
-        
-    #     min_distance=float(.01),
-    #     max_distance=float(25)
-    # )
-
-    header = std_msgs.msg.Header()
-    header.stamp = rospy.Time.now()
-    header.frame_id = 'unilidar_lidar'
-
-    scaled_polygon_pcl = pc2.create_cloud_xyz32(header, finalList)
-
-    # Publish the message
-    pub.publish(scaled_polygon_pcl)
-    
 
 def main():
     
-    
-
     # Initialize the ROS node
     
-    
-
     # Subscriber for unitree
-    rospy.Subscriber('/unilidar/cloud', PointCloud2, lidar_callback)
-    rospy.loginfo("UniLidar subscriber and MAVLink publisher node started.")
+    rospy.Subscriber('/ScanCombine', PointCloud2, lidar_callback)
+    # rospy.Subscriber('/unilidar/cloud', PointCloud2, lidar_callback)
+    # rospy.loginfo("UniLidar subscriber and MAVLink publisher node started.")
     rate.sleep()
     rospy.spin()
     return

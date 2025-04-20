@@ -34,9 +34,9 @@ while True:
             0,                  
             mavutil.mavlink.MAV_FRAME_BODY_FRD,                  
             65535,              
-            float(1),	    
-            float(0),       
             float(0),	    
+            float(0),       
+            float(1),	    
             float(.01),       
             float(25)
         )
@@ -51,4 +51,4 @@ while True:
     #     0, 0, 0, 0, 0, 0
     # )
     
-    time.sleep(.01)
+    time.sleep(.1)
