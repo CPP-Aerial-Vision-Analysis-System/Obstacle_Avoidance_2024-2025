@@ -67,7 +67,11 @@ def lidar_callback(data):
 
         r = math.sqrt(x**2 + y**2 + z**2)
         theta = math.atan2(y, x) * 180 / math.pi
+        if theta < 0:
+            theta = theta + 360
         phi = math.atan2(math.sqrt(x * x + y * y), z) * 180 / math.pi
+        if phi < 0:
+            phi = phi + 360
 
         # if r < 1:
 
@@ -82,29 +86,32 @@ def lidar_callback(data):
     
     def get_min(p1):
         if(len(p1) > 0):
-            lowest = 0
-            itr = 0
-            lowest_itr = 0
+            lowest = 1000
+            lowest_itr = None
 
             for i in p1:
                 if i[0] < lowest:
                     lowest = i[0]
-                    lowest_itr = itr
-                itr +=1 
+                    lowest_itr = i[3]
 
-            return(itr)
+            return(lowest_itr)
         
-        else: return(0)
+        else: return(None)
 
     finalList = []
 
     
-
-    finalList.append(points[get_min(top)])
-    for i in mid :
-        finalList.append(points[get_min(i)])
+    top_min = get_min(top)
+    if top_min is not None:
+        finalList.append(points[top_min])
+    for i in mid:
+        min = get_min(i)
+        if min is not None:
+            finalList.append(points[min])   
     for i in bot :
-        finalList.append(points[get_min(i)])   
+        min = get_min(i)
+        if min is not None:
+            finalList.append(points[min])   
 
     seg = []
 
@@ -148,8 +155,6 @@ def lidar_callback(data):
             min_distance=float(.01),
             max_distance=float(.5)
         )
-
-        time.sleep(0.06667)
 
         num += 1
     
